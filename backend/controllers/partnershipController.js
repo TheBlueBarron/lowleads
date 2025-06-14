@@ -1,1 +1,6 @@
-// Handle requests to send/accept partnerships. Enforce 1:1 status between users.
+/*
+Handles:
+- POST /partnerships/request → request partnership
+- POST /partnerships/accept → accept partnership
+- GET /partnerships → list all accepted partnerships for current user
+*/

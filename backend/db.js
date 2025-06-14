@@ -1,1 +1,5 @@
-// Create a MySQL connection using dotenv variables and export the pool
+/*
+Create and export a MySQL connection pool using dotenv variables:
+- DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
+Use mysql2/promise for async/await compatibility.
+*/

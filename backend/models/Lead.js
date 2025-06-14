@@ -1,2 +1,12 @@
-// MySQL table: leads (id, sender_id, service_id, status)
-// Export functions to create lead, get leads, mark as sold
+/*
+leads table:
+- id
+- sender_id
+- service_id
+- status ('pending', 'sold')
+
+Export functions:
+- createLead({ sender_id, service_id })
+- getLeadsForUser(userId)
+- markLeadAsSold(leadId)
+*/

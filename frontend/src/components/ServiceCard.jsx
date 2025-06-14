@@ -1,1 +1,5 @@
-// Card UI component to display a service with title, reward, and action buttons
+/*
+Card component for a service:
+- Show title, description, reward
+- Optionally show lead submission button
+*/

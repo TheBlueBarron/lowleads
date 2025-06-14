@@ -1,5 +1,7 @@
 /*
-Show user balance.
-List user’s services and received leads.
-Show partner services and allow sending leads.
+Dashboard:
+- Show user’s balance
+- List their services and leads
+- Show partner services and allow sending leads
+Fetch user data from /profile with JWT.
 */
