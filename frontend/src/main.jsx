@@ -1,0 +1,1 @@
+// Render <App /> inside <BrowserRouter />
