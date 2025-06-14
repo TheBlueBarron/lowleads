@@ -1,1 +1,6 @@
-// Signup form that posts to /register. Redirect to /login after success.
+/*
+Signup form:
+- Name, email, password
+- POST to /register
+- Redirect to /login on success
+*/

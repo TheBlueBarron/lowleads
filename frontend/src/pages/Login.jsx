@@ -1,4 +1,6 @@
 /*
-Login form. Submit to /login and store JWT in localStorage.
-Redirect to /dashboard on success.
+Login form:
+- Email and password fields
+- Submit to /login (backend)
+- On success, store JWT in localStorage and redirect to /dashboard
 */

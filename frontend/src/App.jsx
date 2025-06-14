@@ -1,4 +1,6 @@
 /*
-React Router for login, signup, dashboard, and service form.
-Include a navbar at the top.
+App-level routing using React Router.
+- Routes: /login, /signup, /dashboard, /services/new
+- Shows Navbar on all pages
+- Uses private routes for dashboard access
 */

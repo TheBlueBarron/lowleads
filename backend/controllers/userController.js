@@ -1,6 +1,7 @@
 /*
-Handle:
-- POST /register: hash password, insert user
-- POST /login: validate, return JWT
-- GET /profile: return user info from JWT
+Handles user registration, login, and profile fetch:
+- POST /register → hash password, insert user, return JWT
+- POST /login → validate password, return JWT
+- GET /profile → get user info using JWT
+Uses bcrypt and jsonwebtoken.
 */
