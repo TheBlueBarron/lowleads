@@ -19,10 +19,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(userRoutes);
-app.use(serviceRoutes);
-app.use(partnershipRoutes);
-app.use(leadRoutes);
+// ✅ Mount routes with API prefix
+app.use('/api/users', userRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/partnerships', partnershipRoutes);
+app.use('/api/leads', leadRoutes);
+
+app.get('/api/test', (req, res) => {
+  res.send('API is working');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

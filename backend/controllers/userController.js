@@ -15,6 +15,13 @@ const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 async function register(req, res) {
   try {
     const { name, email, password } = req.body;
+
+    // Check if user already exists
+    const existing = await User.getUserByEmail(email);
+    if (existing) {
+      return res.status(400).json({ error: 'Email already in use' });
+    }
+
     const password_hash = await bcrypt.hash(password, 10);
     const user = await User.createUser({ name, email, password_hash });
     const token = jwt.sign({ id: user.id }, JWT_SECRET);

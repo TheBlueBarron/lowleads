@@ -3,10 +3,10 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/serviceController');
-const { authMiddleware } = require('../controllers/userController');
+const authenticateJWT = require('../middleware/authMiddleware'); // ✅ correct import
 
-router.post('/services', authMiddleware, controller.createService);
-router.get('/services', authMiddleware, controller.getServices);
-router.get('/partner-services', authMiddleware, controller.getPartnerServices);
+router.post('/services', authenticateJWT, controller.createService);
+router.get('/services', authenticateJWT, controller.getServices);
+router.get('/partner-services', authenticateJWT, controller.getPartnerServices);
 
 module.exports = router;

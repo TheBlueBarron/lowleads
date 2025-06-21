@@ -3,10 +3,10 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/leadController');
-const { authMiddleware } = require('../controllers/userController');
+const authenticateJWT = require('../middleware/authMiddleware');
 
-router.post('/leads', authMiddleware, controller.sendLead);
-router.get('/leads', authMiddleware, controller.listLeads);
-router.patch('/leads/:id/sold', authMiddleware, controller.markSold);
+router.post('/leads', authenticateJWT, controller.sendLead);
+router.get('/leads', authenticateJWT, controller.listLeads);
+router.patch('/leads/:id/sold', authenticateJWT, controller.markSold);
 
 module.exports = router;

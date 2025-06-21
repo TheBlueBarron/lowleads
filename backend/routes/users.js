@@ -1,11 +1,14 @@
-// Express routes: /register, /login, /profile → use userController
-
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
+const authenticateJWT = require('../middleware/authMiddleware');
 
 router.post('/register', userController.register);
 router.post('/login', userController.login);
-router.get('/profile', userController.authMiddleware, userController.profile);
+
+// Example protected route
+router.get('/profile', authenticateJWT, (req, res) => {
+  res.json({ message: `Welcome, ${req.user.email}` });
+});
 
 module.exports = router;

@@ -1,30 +1,35 @@
-/*
-Login form:
-- Email and password fields
-- Submit to /login (backend)
-- On success, store JWT in localStorage and redirect to /dashboard
-*/
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login as loginApi } from '../api/auth';
-
-export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await loginApi(email, password);
-    navigate('/dashboard');
+    try {
+      const res = await axios.post("http://localhost:10000/api/users/login", {
+        email,
+        password,
+      });
+
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert("Login failed");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Login</button>
     </form>
   );
-}
+};
+
+export default Login;
